@@ -14,9 +14,11 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name="titulo", nullable = false)
     @NotNull
     private String titulo;
 
+    @Column(name="autor", nullable = false)
     @NotNull
     private String autor;
 
