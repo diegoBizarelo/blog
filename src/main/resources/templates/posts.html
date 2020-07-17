@@ -8,6 +8,7 @@
     <header>
         <nav class="navbar navbar-light bg-light">
             <a class="navbar-brand" href="#">Blog</a>
+            <a href="/novopost" class="btn btn-primary" role="buttom">Novo Post</a>
         </nav>
     </header>
     <section>
@@ -23,7 +24,7 @@
                         <span th:text="${post.autor}"></span>
                         <span th:text="${post.data}"></span>
                     </p>
-                    <a href="#"><h4 class="card-title" style="font-weight: bold; color: black; padding-top: 5px">
+                    <a th:href="${(#mvc.url('BC#getPostDetails').arg(0, post.id)).build()}"><h4 class="card-title" style="font-weight: bold; color: black; padding-top: 5px">
                         <span th:text="${post.titulo}"></span>
                     </h4></a>
                     <p class="card-text">
