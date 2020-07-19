@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -44,9 +45,9 @@ public class BlogController {
     }
 
     @RequestMapping(value = "/novopost", method = RequestMethod.POST)
-    public String savePost(@RequestBody Post post, BindingResult result, RedirectAttributes attributes) {
+    public String savePost(@Valid Post post, BindingResult result, RedirectAttributes attributes) {
         if (result.hasErrors()) {
-            attributes.addFlashAttribute("message","Deu Merda!");
+            attributes.addFlashAttribute("message","Campo Marcado com * é obrigatório!");
             return "redirect:/novopost";
         }
         post.setData(LocalDate.now());
